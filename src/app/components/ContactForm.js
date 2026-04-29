@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { UploadCloud, CheckCircle, X } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -16,14 +16,12 @@ export default function ContactForm() {
   const fileInputRef = useRef(null);
   const [errors, setErrors] = useState({});
   const [dragActive, setDragActive] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ================= HANDLE CHANGE (REAL-TIME ERROR REMOVE) =================
+  // ================= HANDLE CHANGE =================
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
 
-    // remove error instantly
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }));
     }
@@ -56,18 +54,51 @@ export default function ContactForm() {
   };
 
   // ================= SUBMIT =================
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (loading) return;
     if (!validate()) return;
 
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    // simulate API
-    setTimeout(() => {
+      // ===== SIMULATED API CALL =====
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // simulate random failure (for testing)
+          const success = Math.random() > 0.2;
+
+          if (success) resolve();
+          else reject(new Error("Server failed"));
+        }, 1200);
+      });
+
+      // ===== SUCCESS =====
+      toast.success("Request submitted successfully");
+
+      // reset form
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        file: null,
+      });
+
+      setErrors({});
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+
+    } catch (error) {
+      // ===== ERROR =====
+      console.error(error);
+
+      toast.error(error.message || "Submission failed");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    }
   };
 
   // ================= DRAG DROP =================
@@ -83,7 +114,6 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-2xl shadow-xl border">
-
       <h2 className="text-2xl font-semibold mb-8">
         Request Appointment
       </h2>
@@ -161,7 +191,7 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* FILE UPLOAD */}
+        {/* FILE */}
         <div>
           <label className="block text-sm text-gray-600 mb-2">
             Upload Report (optional)
@@ -198,7 +228,6 @@ export default function ContactForm() {
             />
           </div>
 
-          {/* FILE PREVIEW */}
           {form.file && (
             <div className="flex justify-between items-center mt-2 text-sm">
               <span className="text-gray-600 truncate">
@@ -227,19 +256,15 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gradient-to-r from-[#1E3A5F] to-[#2A9D8F] text-white py-3 rounded-lg hover:opacity-90 transition shadow-lg"
+          className="w-full bg-gradient-to-r from-[#1E3A5F] to-[#2A9D8F] text-white py-3 rounded-lg hover:opacity-90 transition shadow-lg flex items-center justify-center gap-2"
         >
+          {loading && (
+            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+          )}
           {loading ? "Submitting..." : "Submit Request"}
         </button>
 
         {/* SUCCESS */}
-        {submitted && (
-          <div className="mt-4 flex items-center gap-2 text-green-600 text-sm">
-            <CheckCircle size={18} />
-            Request submitted successfully
-          </div>
-        )}
-
       </form>
     </div>
   );

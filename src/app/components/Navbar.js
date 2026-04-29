@@ -48,7 +48,7 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8 text-sm font-medium">
           {navLink("/", "Home")}
           {navLink("/services", "Services")}
-          {navLink("/for-gps", "for-gps")}
+          {navLink("/for-gps", "For GPs")}
           {navLink("/about", "About")}
           {navLink("/contact", "Contact")}
         </div>
@@ -79,6 +79,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-4 text-base font-medium">
             {navLink("/", "Home")}
             {navLink("/services", "Services")}
+            {navLink("/for-gps", "For GPs")}   
             {navLink("/about", "About")}
             {navLink("/contact", "Contact")}
           </div>
