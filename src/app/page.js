@@ -1,10 +1,12 @@
 import HeroSection from "./components/HeroSection";
-import ServicesSection from "./components/ServicesSection";
-import WhyChoose from "./components/WhyChoose";
-import Testimonials from "./components/Testimonials";
-import Stats from "./components/Stats";
+import WhyChoose from "./components/sections/WhyChoose";
+import About from "./components/sections/About";
 import CTASection from "./components/CTASection";
 import TrustBar from "./components/TrustBar";
+import Services from "./components/sections/Services";
+import HowItWorks from "./components/sections/HowItWorks";
+import Testimonials from "./components/sections/Testimonials";
+
 
 
 
@@ -13,9 +15,10 @@ export default function Home() {
     <>
       <HeroSection />
       <TrustBar />
-      <ServicesSection />
+      <About />
+       <Services />
       <WhyChoose />
-      <Stats />
+      <HowItWorks />
       <Testimonials />
       <CTASection />
     </>

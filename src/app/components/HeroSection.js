@@ -1,99 +1,146 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Container from "./layout/Container";
 import Link from "next/link";
+import { CheckCircle, ShieldCheck, Stethoscope } from "lucide-react";
 
-export default function HeroSection() {
+export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1E3A5F] to-[#2A9D8F] text-white">
+    <section className="bg-[#F5F7FA] pt-6 pb-20">
+      <Container>
+        <div className="grid md:grid-cols-2 gap-16 items-center">
 
-      {/* DARK OVERLAY (FIXED CLICK ISSUE) */}
-      <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
+          {/* LEFT */}
+          <div>
 
-      {/* glow */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
+            {/* TOP BADGE */}
+            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-5 py-2 rounded-full shadow-sm text-sm text-gray-700">
 
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center relative z-10">
+              {/* GLOW DOT */}
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
 
-        {/* LEFT */}
-        <div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold leading-tight"
-          >
-            Precision Imaging. <br /> Delivered Onsite.
-          </motion.h1>
+              Now serving Ballarat & Central Highlands
+            </div>
 
-          {/* <p className="mt-5 text-blue-100">
-            Mobile ultrasound services across Ballarat & Central Highlands.
-          </p> */}
+            {/* HEADING */}
+            <h1 className="mt-6 text-[56px] leading-[1.1] font-serif font-semibold text-[#0F2A44]">
+              Precision Imaging.
+              <span className="block text-[#2A9D8F]">
+                Delivered Onsite.
+              </span>
+            </h1>
 
-          {/* <p className="mt-5  max-w-xl">
-            Central Highlands Mobile Imaging provides high-quality, radiologist-reported ultrasound services directly to GP clinics, aged care facilities, and regional healthcare providers.
-          </p>
+            {/* FULL PARAGRAPH (DON’T CUT THIS) */}
+            <p className="mt-6 text-gray-600 max-w-xl text-lg leading-relaxed">
+              CHMI provides high-quality, radiologist-reported ultrasound
+              services directly to GP clinics, aged care facilities, and
+              regional healthcare providers. Fast turnaround. Clinical accuracy.
+              Mobile convenience.
+            </p>
 
-          <p className="mt-3 text-sm ">
-            Fast turnaround. Clinical accuracy. Mobile convenience.
-          </p> */}
+            {/* FEATURES */}
+            <div className="mt-8 grid grid-cols-2 gap-y-4 gap-x-6 text-[15px] text-gray-700">
+              {[
+                "Radiologist Reported",
+                "Medicare Compliant",
+                "Mobile to Clinics & Facilities",
+                "Serving Ballarat & Central Highlands",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <CheckCircle className="text-[#2A9D8F] w-5 h-5" />
+                  {item}
+                </div>
+              ))}
+            </div>
 
-          {/* <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-600">
-            <span className="bg-gray-100 px-3 py-1 rounded-full">Radiologist Reported</span>
-            <span className="bg-gray-100 px-3 py-1 rounded-full">Medicare Compliant</span>
-            <span className="bg-gray-100 px-3 py-1 rounded-full">Mobile to Clinics</span>
-          </div> */}
-          <ul className="mt-6 space-y-2 text-sm">
-            <li>✔ Radiologist Reported</li>
-            <li>✔ Mobile to Clinics</li>
-            <li>✔ Fast Turnaround</li>
-            <li>✔ Medicare Compliant</li>
-          </ul>
+            {/* BUTTONS */}
+            <div className="mt-10 flex gap-4">
 
-          {/* ✅ FIXED BUTTONS */}
-          <div className="mt-8 flex gap-4 flex-wrap">
+              <Link
+                href="/contact"
+                className="bg-[#1F3A5F] text-white px-7 py-3 rounded-full shadow-lg hover:scale-105 transition-all"
+              >
+                Request Referral →
+              </Link>
 
-            <Link
-              href="/contact"
-              className="bg-white text-[#1E3A5F] px-6 py-3 rounded-lg font-medium hover:scale-105 transition inline-block shadow-md"
-            >
-              Request Referral
-            </Link>
+              <Link
+                href="/services"
+                className="border border-[#1F3A5F] text-[#1F3A5F] px-7 py-3 rounded-full hover:bg-gray-100 transition"
+              >
+                View Services
+              </Link>
+            </div>
 
-            <Link
-              href="/contact"
-              className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-[#1E3A5F] transition inline-block"
-            >
-              Contact Us
-            </Link>
+            {/* BOTTOM INFO */}
+            <div className="mt-10 flex gap-10 text-gray-600 text-sm">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-[#1F3A5F]" />
+                Accredited Radiologists
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Stethoscope className="w-5 h-5 text-[#1F3A5F]" />
+                Experienced Sonographers
+              </div>
+            </div>
 
           </div>
-        </div>
 
-        {/* RIGHT IMAGE */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="relative flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          >
+          {/* RIGHT */}
+          <div className="relative flex justify-center">
+
+            {/* SOFT BG CARD */}
+            <div className="absolute w-[95%] h-[95%] bg-[#EAF1F5] rounded-[30px] blur-2xl"></div>
+
+            {/* IMAGE */}
             <Image
               src="/doctor.png"
-              alt="Ultrasound"
-              width={520}
-              height={420}
-              priority
-              className="rounded-xl shadow-2xl hover:scale-105 transition duration-500"
+              width={420}
+              height={520}
+              alt="doctor"
+              className="relative rounded-2xl shadow-xl"
             />
-          </motion.div>
-        </motion.div>
 
-      </div>
+            {/* FLOAT CARD 1 */}
+            <div className="absolute top-8 left-4 bg-white px-5 py-3 rounded-2xl shadow-lg flex items-center gap-3">
+
+              <div className="bg-green-100 p-2 rounded-full">
+                <CheckCircle className="text-green-600 w-5 h-5" />
+              </div>
+
+              <div className="text-sm">
+                <p className="text-gray-500">Reports in</p>
+                <p className="font-semibold text-[#0F2A44]">
+                  Under 24 hours
+                </p>
+              </div>
+
+            </div>
+
+            {/* FLOAT CARD 2 */}
+            <div className="absolute bottom-6 right-4 bg-white px-5 py-3 rounded-2xl shadow-lg flex items-center gap-3">
+
+              <div className="bg-blue-100 p-2 rounded-full">
+                <ShieldCheck className="text-blue-600 w-5 h-5" />
+              </div>
+
+              <div className="text-sm">
+                <p className="text-gray-500">Compliance</p>
+                <p className="font-semibold text-[#0F2A44]">
+                  Medicare Bulk Bill
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </Container>
     </section>
   );
 }

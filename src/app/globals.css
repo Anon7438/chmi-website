@@ -1,71 +1,64 @@
+/* Tailwind */
 @import "tailwindcss";
 
-
+/* =========================
+   ROOT DESIGN TOKENS
+========================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #1E3A5F;
+  --secondary: #2A9D8F;
+
+  --bg-main: #F9FBFD;
+  --text-main: #0F2A44;
+  --text-muted: #64748b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================
+   BASE STYLES
+========================= */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-   background-color: #f8fafc;
-  color: #0f172a;
-}
-html {
-  scroll-behavior: smooth;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body); /* from layout */
 }
 
-input,
-textarea {
-  color: #111 !important;
+/* Headings (premium look) */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
 }
 
-button {
-  transition: all 0.2s ease-in-out;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
+/* Remove ugly mobile tap highlight */
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
+/* Links */
 a {
   text-decoration: none;
 }
 
-:root {
-  --primary: #1E3A5F;
-  --secondary: #2A9D8F;
+/* Buttons */
+button {
+  transition: all 0.25s ease;
 }
 
+/* =========================
+   REUSABLE UTILITIES
+========================= */
+
 .section {
-  @apply py-20 px-6;
+  @apply py-20 md:py-28 px-6;
 }
 
 .container {
@@ -73,45 +66,65 @@ a {
 }
 
 .heading {
-  @apply text-3xl md:text-4xl font-semibold text-gray-900;
+  @apply text-3xl md:text-5xl font-semibold;
+  font-family: var(--font-heading);
 }
 
 .subtext {
-  @apply text-gray-600 mt-3 max-w-xl mx-auto;
+  @apply text-[15px] md:text-lg mt-4;
+  color: var(--text-muted);
 }
 
-/* 
+/* =========================
+   FORM STYLES
+========================= */
 
-@import "tailwindcss";
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #334155;
 }
 
-
-body {
-  background-color: #f8fafc;
-  color: #0f172a;
+.input-clean {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.25s ease;
 }
 
-html {
-  scroll-behavior: smooth;
+.input-clean:focus {
+  border-color: var(--secondary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+  outline: none;
 }
 
-
-input,
-textarea {
-  color: #111 !important;
+.error {
+  font-size: 12px;
+  color: red;
+  margin-top: 4px;
 }
 
-button {
-  transition: all 0.2s ease-in-out;
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-
-a {
-  text-decoration: none;
-} */
+.animate-dropdown {
+  animation: dropdown 0.2s ease;
+}
