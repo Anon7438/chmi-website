@@ -47,9 +47,29 @@ export default function ContactForm() {
     if (!form.name.trim()) {
       e.name = "Required";
       nameRef.current.focus();
-    } else if (!form.email.trim()) {
+    }
+
+    if (!form.email.trim()) {
       e.email = "Required";
       emailRef.current.focus();
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+      e.email = "Invalid email";
+    }
+
+    if (!form.clinic.trim()) {
+      e.clinic = "Required";
+    }
+
+    if (!form.phone.trim()) {
+      e.phone = "Required";
+    }
+
+    if (!selected) {
+      e.service = "Required";
+    }
+
+    if (!form.message.trim()) {
+      e.message = "Required";
     }
 
     setErrors(e);
@@ -178,6 +198,7 @@ export default function ContactForm() {
                 value={form.clinic}
                 onChange={(e) => handleChange("clinic", e.target.value)}
               />
+            {errors.clinic && <p className="error">{errors.clinic}</p>}
             </div>
           </div>
 
@@ -201,8 +222,12 @@ export default function ContactForm() {
                 placeholder="+61..."
                 className="input-clean"
                 value={form.phone}
-                onChange={(e) => handleChange("phone", e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, ""); // only numbers
+                  handleChange("phone", value);
+                }}
               />
+              {errors.phone && <p className="error">{errors.phone}</p>}
             </div>
           </div>
 
@@ -224,6 +249,7 @@ export default function ContactForm() {
               </span>
               <span className="text-gray-400">⌄</span>
             </div>
+            {errors.service && <p className="error">{errors.service}</p>}
 
             {dropdownOpen && (
               <div
@@ -240,13 +266,12 @@ export default function ContactForm() {
                       setDropdownOpen(false);
                     }}
                     className={`px-4 py-3 text-sm cursor-pointer transition
-                    ${
-                      selected === item
+                    ${selected === item
                         ? "bg-[#2A9D8F] text-white"
                         : highlightedIndex === i
-                        ? "bg-gray-100"
-                        : "text-gray-700"
-                    }`}
+                          ? "bg-gray-100"
+                          : "text-gray-700"
+                      }`}
                   >
                     {item}
                   </div>
@@ -265,6 +290,7 @@ export default function ContactForm() {
               value={form.message}
               onChange={(e) => handleChange("message", e.target.value)}
             />
+            {errors.message && <p className="error">{errors.message}</p>}
           </div>
 
           {/* UPLOAD */}
@@ -317,3 +343,251 @@ export default function ContactForm() {
     </div>
   );
 }
+
+
+
+// "use client";
+
+// import { useState, useRef, useEffect } from "react";
+// import { UploadCloud, X } from "lucide-react";
+
+// export default function ContactForm() {
+//   const fileRef = useRef();
+//   const dropdownRef = useRef();
+//   const nameRef = useRef();
+//   const emailRef = useRef();
+
+//   const [form, setForm] = useState({
+//     name: "",
+//     email: "",
+//     clinic: "",
+//     phone: "",
+//     message: "",
+//     file: null,
+//   });
+
+//   const [selected, setSelected] = useState("");
+//   const [dropdownOpen, setDropdownOpen] = useState(false);
+//   const [highlightedIndex, setHighlightedIndex] = useState(-1);
+//   const [openUp, setOpenUp] = useState(false);
+
+//   const [errors, setErrors] = useState({});
+//   const [success, setSuccess] = useState(false);
+//   const [loading, setLoading] = useState(false);
+
+//   const options = [
+//     "General",
+//     "Vascular",
+//     "Musculoskeletal (MSK)",
+//     "Small Parts",
+//     "Other / Not sure",
+//   ];
+
+//   // HANDLE CHANGE
+//   const handleChange = (field, value) => {
+//     setForm((prev) => ({ ...prev, [field]: value }));
+//     setErrors((prev) => ({ ...prev, [field]: "" }));
+//   };
+
+//   // VALIDATION
+//   const validate = () => {
+//     let e = {};
+
+
+//     if (!form.name.trim()) {
+//       e.name = "Required";
+//       nameRef.current.focus();
+//     }
+
+//     if (!form.email.trim()) {
+//       e.email = "Required";
+//       emailRef.current.focus();
+//     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+//       e.email = "Invalid email";
+//       emailRef.current.focus();
+//     }
+
+//     if (!form.message.trim()) {
+//       e.message = "Required";
+//     }
+
+//     setErrors(e);
+//     return Object.keys(e).length === 0;
+
+
+//   };
+
+//   // SUBMIT
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     if (!validate()) return;
+
+//     try {
+//       const formData = new FormData();
+
+//       formData.append("name", form.name);
+//       formData.append("email", form.email);
+//       formData.append("phone", form.phone);
+//       formData.append("clinic", form.clinic);
+//       formData.append("message", form.message);
+//       formData.append("service", selected);
+
+//       if (form.file) {
+//         formData.append("file", form.file);
+//       }
+
+//       const res = await fetch("/api/contact", {
+//         method: "POST",
+//         body: formData,
+//       });
+
+//       // 🔍 DEBUG (keep for now)
+//       const text = await res.text();
+//       console.log("RAW RESPONSE:", text);
+
+//       let data;
+//       try {
+//         data = JSON.parse(text);
+//         console.log("JSON:", data);
+//       } catch {
+//         console.log("Response is not JSON");
+//       }
+
+//       if (!res.ok) throw new Error(data?.error || "Failed");
+
+//       // ✅ SAME UI BEHAVIOUR AS BEFORE
+//       setSuccess(true);
+
+//       setTimeout(() => {
+//         setSuccess(false);
+//         setForm({
+//           name: "",
+//           email: "",
+//           clinic: "",
+//           phone: "",
+//           message: "",
+//           file: null,
+//         });
+//         setSelected("");
+//       }, 5000);
+
+//     } catch (err) {
+//       console.error(err);
+//       alert("Failed to send form");
+//     }
+//   };
+
+//   // CLOSE DROPDOWN
+//   useEffect(() => {
+//     const handleClickOutside = (e) => {
+//       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+//         setDropdownOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => document.removeEventListener("mousedown", handleClickOutside);
+//   }, []);
+
+//   const handleToggle = () => {
+//     if (!dropdownRef.current) return;
+
+
+//     const rect = dropdownRef.current.getBoundingClientRect();
+//     const spaceBelow = window.innerHeight - rect.bottom;
+
+//     setOpenUp(spaceBelow < 250);
+//     setDropdownOpen((prev) => !prev);
+
+
+//   };
+
+//   return (<div className="bg-white p-10 rounded-2xl shadow w-full">
+
+
+//     <h2 className="text-2xl mb-2">Request appointment</h2>
+
+//     {success ? (
+//       <div className="bg-green-100 p-5 rounded">
+//         Form submitted successfully
+//       </div>
+//     ) : (
+//       <form onSubmit={handleSubmit} className="space-y-5">
+
+//         <input
+//           ref={nameRef}
+//           placeholder="Full Name"
+//           value={form.name}
+//           onChange={(e) => handleChange("name", e.target.value)}
+//           className="input-clean"
+//         />
+//         {errors.name && <p className="error">{errors.name}</p>}
+
+//         <input
+//           ref={emailRef}
+//           placeholder="Email"
+//           value={form.email}
+//           onChange={(e) => handleChange("email", e.target.value)}
+//           className="input-clean"
+//         />
+//         {errors.email && <p className="error">{errors.email}</p>}
+
+//         <input
+//           placeholder="Phone"
+//           value={form.phone}
+//           onChange={(e) => handleChange("phone", e.target.value)}
+//           className="input-clean"
+//         />
+
+//         <textarea
+//           placeholder="Message"
+//           value={form.message}
+//           onChange={(e) => handleChange("message", e.target.value)}
+//           className="input-clean"
+//         />
+//         {errors.message && <p className="error">{errors.message}</p>}
+
+//         {/* FILE */}
+//         <div onClick={() => fileRef.current.click()} className="border p-5 text-center cursor-pointer">
+//           Upload PDF
+//           <input
+//             ref={fileRef}
+//             type="file"
+//             accept="application/pdf"
+//             className="hidden"
+//             onChange={(e) => {
+//               const file = e.target.files[0];
+
+//               if (file && file.type !== "application/pdf") {
+//                 alert("Only PDF allowed");
+//                 return;
+//               }
+
+//               if (file && file.size > 5 * 1024 * 1024) {
+//                 alert("Max 5MB allowed");
+//                 return;
+//               }
+
+//               handleChange("file", file);
+//             }}
+//           />
+//         </div>
+
+//         {form.file && (
+//           <div className="flex justify-between">
+//             {form.file.name}
+//             <button onClick={() => handleChange("file", null)}>
+//               <X size={16} />
+//             </button>
+//           </div>
+//         )}
+
+//         <button disabled={loading} className="btn">
+//           {loading ? "Sending..." : "Submit"}
+//         </button>
+
+//       </form>
+//     )}
+//   </div>
+//   );
+// }

@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <div className="bg-white p-2 rounded-lg shrink-0">
                 <Image
-                  src="/logo.png"
+                  src="/logo_img.png"
                   alt="CHMI Logo"
                   width={55}
                   height={55}

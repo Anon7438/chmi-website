@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import CTASection from "../components/CTASection";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -97,7 +98,7 @@ export default function ForGPs() {
           {/* RIGHT IMAGE */}
           <div className="relative">
             <img
-              src="/machine.jpeg"
+              src="/Drc.jpeg"
               alt="Ultrasound"
               className="rounded-2xl shadow-md"
             />
@@ -231,6 +232,7 @@ export default function ForGPs() {
 
         </div>
       </section>
+     <CTASection />
 
       {/* FAQ */}
       <section className="px-6 md:px-10 lg:px-16 pb-20">

@@ -14,7 +14,7 @@ export default function About() {
           <div className="relative">
 
             <Image
-              src="/machine.jpeg"
+              src="/machine_latest.jpeg"
               alt="ultrasound machine"
               width={500}
               height={600}

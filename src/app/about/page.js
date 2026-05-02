@@ -30,7 +30,7 @@ export default function AboutPage() {
           {/* IMAGE */}
           <div className="relative">
             <img
-              src="/machine.jpeg"
+              src="/Drc.jpeg"
               alt="Ultrasound Machine"
               className="rounded-2xl shadow-lg w-full object-cover"
             />

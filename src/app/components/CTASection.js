@@ -17,7 +17,7 @@ export default function CTASection() {
           </h3>
 
           <p className="text-blue-100 mt-3 max-w-md">
-            Supporting clinics across Ballarat & the Central Highlands.
+            Supporting clinics across Ballarat & the Central Highlands with radiologist-reported ultrasound. get in touch to schedule a visit or send a referral. 
           </p>
         </div>
 
