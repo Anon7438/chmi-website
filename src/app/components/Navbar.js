@@ -49,10 +49,10 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.png"
+            src="/logo_latest.jpeg"
             alt="CHMI"
-            width={130}
-            height={40}
+            width={230}
+            height={90}
             className="object-contain"
           />
         </Link>
