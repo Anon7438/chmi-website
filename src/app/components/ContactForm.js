@@ -157,7 +157,7 @@ export default function ContactForm() {
     <div className="bg-white/70 backdrop-blur-xl border border-gray-200 p-10 rounded-2xl shadow-sm w-full">
 
       <h2 className="text-3xl font-serif text-[#0F2A44] mb-2">
-        Request appointment
+        Send appointment
       </h2>
 
       <p className="text-gray-600 mb-8">

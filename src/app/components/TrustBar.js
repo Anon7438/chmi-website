@@ -6,7 +6,7 @@ const items = [
   "Radiologist Reported",
   "Medicare Compliant",
   "Mobile to Clinics & Facilities",
-  "Serving Ballarat & Central Highlands",
+  " Bulk Billing Available",
 ];
 
 export default function TrustBar() {

@@ -13,9 +13,9 @@ export default function Navbar() {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/for-gps", label: "For GPs" },
-    { path: "/services", label: "Services" },
     { path: "/about", label: "About" },
+    { path: "/services", label: "Services" },
+    { path: "/for-gps", label: "For GPs" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -37,25 +37,29 @@ export default function Navbar() {
     <nav
       className={`
         sticky top-0 z-50 transition-all duration-300
-        ${
-          scrolled
-            ? "bg-white/80 backdrop-blur-md shadow-sm"
-            : "bg-white"
+        ${scrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          : "bg-white"
         }
       `}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-2 flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link
+          href="/"
+          className="flex items-center gap-2 bg-white/70 backdrop-blur-sm  rounded-[5rem] shadow-sm"
+        >
           <Image
-            src="/logo_latest.jpeg"
+            src="/logo_latest_2.jpeg"
             alt="CHMI"
-            width={230}
+            width={290}
             height={90}
-            className="object-contain"
+            className="object-contain rounded-md"
+            priority
           />
         </Link>
+
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-8 text-[15px] font-medium">
@@ -70,11 +74,10 @@ export default function Navbar() {
                 className="relative group"
               >
                 <span
-                  className={`transition ${
-                    isActive
-                      ? "text-[#1E3A5F]"
-                      : "text-gray-600 hover:text-[#1E3A5F]"
-                  }`}
+                  className={`transition ${isActive
+                    ? "text-[#1E3A5F]"
+                    : "text-gray-600 hover:text-[#1E3A5F]"
+                    }`}
                 >
                   {item.label}
                 </span>
@@ -110,7 +113,7 @@ export default function Navbar() {
               hover:shadow-lg hover:-translate-y-[2px]
               active:scale-95
             ">
-              <span className="relative z-10">Request Referral</span>
+              <span className="relative z-10">Send Referral</span>
 
               <span className="
                 absolute inset-0 bg-white/10 opacity-0
@@ -156,11 +159,10 @@ export default function Navbar() {
               key={item.path}
               href={item.path}
               onClick={() => setOpen(false)}
-              className={`transition ${
-                pathname === item.path
-                  ? "text-[#1E3A5F]"
-                  : "text-gray-700 hover:text-[#1E3A5F]"
-              }`}
+              className={`transition ${pathname === item.path
+                ? "text-[#1E3A5F]"
+                : "text-gray-700 hover:text-[#1E3A5F]"
+                }`}
             >
               {item.label}
             </Link>
@@ -173,7 +175,7 @@ export default function Navbar() {
             transition-all duration-300
             hover:bg-[#16324f] active:scale-95
           ">
-            Request Referral
+            Send Referral
           </button>
         </Link>
       </div>

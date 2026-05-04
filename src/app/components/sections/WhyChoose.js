@@ -22,9 +22,9 @@ const features = [
 ];
 
 const stats = [
-  { value: "500+", label: "Scans Completed" },
+  { value: "0 km", label: " Travel Required" },
   { value: "20+", label: "Clinics Supported" },
-  { value: "24h", label: "Fast Reporting" },
+  { value: "24–48h", label: "Fast Reporting" },
   { value: "100%", label: "Medicare Compliant" },
 ];
 
@@ -46,7 +46,7 @@ export default function WhyChoose() {
           </h2>
 
           <p className="mt-4 text-gray-600 text-lg">
-            Three reasons clinics across Ballarat and the Central Highlands choose us.
+            Three reasons clinics across Ballarat and the The Central Highlands choose us.
           </p>
         </div>
 

@@ -1,11 +1,11 @@
 import "./globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Sans_3, Playfair_Display } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 
 // BODY FONT
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
@@ -21,17 +21,16 @@ const playfair = Playfair_Display({
 export const metadata = {
   title: "CHMI - Mobile Imaging",
   description:
-    "Mobile ultrasound services across Ballarat & Central Highlands. Fast, reliable, radiologist-reported imaging.",
+    "Mobile ultrasound services across Ballarat & The Central Highlands.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <body
         className={`
-          ${inter.variable} ${playfair.variable}
-          font-body bg-[#F9FBFD] text-[#0F2A44]
-          antialiased
+          ${sourceSans.variable} ${playfair.variable}
+          font-body bg-[#F9FBFD] text-[#0F2A44] antialiased
         `}
       >
         <Navbar />

@@ -23,7 +23,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </span>
 
-              Now serving Ballarat & Central Highlands
+               Bulk Billing Available
             </div>
 
             {/* HEADING */}
@@ -47,8 +47,8 @@ export default function Hero() {
               {[
                 "Radiologist Reported",
                 "Medicare Compliant",
-                "Mobile to Clinics & Facilities",
-                "Serving Ballarat & Central Highlands",
+                "Onsite Imaging Services",
+                " Bulk Billing Available",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <CheckCircle className="text-[#2A9D8F] w-5 h-5" />
@@ -64,7 +64,7 @@ export default function Hero() {
                 href="/contact"
                 className="bg-[#1F3A5F] text-white px-7 py-3 rounded-full shadow-lg hover:scale-105 transition-all"
               >
-                Request Referral →
+                Send Referral →
               </Link>
 
               <Link
@@ -115,7 +115,7 @@ export default function Hero() {
               <div className="text-sm">
                 <p className="text-gray-500">Reports in</p>
                 <p className="font-semibold text-[#0F2A44]">
-                  Under 24 hours
+                  Within 24–48 hours
                 </p>
               </div>
 
@@ -131,7 +131,7 @@ export default function Hero() {
               <div className="text-sm">
                 <p className="text-gray-500">Compliance</p>
                 <p className="font-semibold text-[#0F2A44]">
-                  Medicare Bulk Bill
+                  Medicare compliant
                 </p>
               </div>
 

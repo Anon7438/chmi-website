@@ -18,9 +18,9 @@ export default function Footer() {
           <div>
             
             <div className="flex items-center gap-4">
-              <div className="bg-white p-2 rounded-lg shrink-0">
+              <div className="bg-white  backdrop-blur-sm  rounded-[5rem] shadow-sm shrink-0">
                 <Image
-                  src="/logo_latest.jpeg"
+                  src="/logo_latest_2.jpeg"
                   alt="CHMI Logo"
                   width={230}
                   height={90}
@@ -29,7 +29,7 @@ export default function Footer() {
 
               <div>
                 <h3 className="text-lg font-semibold">
-                  Central Highlands
+                  The Central Highlands
                 </h3>
                 <p className="text-teal-400 text-sm font-medium">
                   Mobile Imaging
@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-blue-200 mt-6 leading-relaxed max-w-md">
-              Professional mobile ultrasound services across Ballarat & the Central Highlands. Radiologist-reported, Medicare compliant, delivered onsite.
+              Professional mobile ultrasound services across Ballarat & the The Central Highlands. Radiologist-reported, Medicare compliant, delivered onsite.
             </p>
 
             {/* ✅ BADGES (SMART WRAP — MOBILE FIXED) */}
@@ -94,7 +94,7 @@ export default function Footer() {
 
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-teal-400 mt-0.5" />
-                Ballarat & Central Highlands, Victoria
+                Ballarat & The Central Highlands, Victoria
               </div>
 
             </div>
@@ -110,11 +110,11 @@ export default function Footer() {
       <div className="w-full px-6 md:px-10 lg:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-blue-300">
 
         <p>
-          © {new Date().getFullYear()} Central Highlands Mobile Imaging. All rights reserved.
+          © {new Date().getFullYear()} The Central Highlands Mobile Imaging. All rights reserved.
         </p>
 
         <p className="text-center md:text-right">
-          Mobile diagnostic ultrasound — Ballarat · Central Highlands
+          Mobile diagnostic ultrasound — Ballarat · The Central Highlands
         </p>
 
       </div>

@@ -9,18 +9,40 @@ export default function AboutPage() {
     <div className="bg-[#F5F7FA] text-[#0F2A44]">
 
       {/* HERO */}
-      <section className="px-6 md:px-12 lg:px-20 pt-20 pb-16 bg-[#EEF3F7]">
-        <p className="text-sm tracking-[0.2em] text-[#2A9D8F] font-semibold">
-          ABOUT US
-        </p>
+      {/* HERO */}
+      <section className="relative overflow-hidden">
 
-        <h1 className="text-4xl md:text-6xl font-serif font-semibold leading-tight mt-4 max-w-3xl">
-          Bringing radiology-grade imaging to regional Victoria
-        </h1>
+        {/* BACKGROUND IMAGE */}
+        <div className="absolute inset-0">
+          <img
+            src="/ABOUT.jpeg" // add this image in public folder
+            alt="Ultrasound"
+            className="w-full h-full object-cover"
+          />
+          {/* DARK OVERLAY */}
+          <div className="absolute inset-0 bg-[#0F2A44]/80"></div>
 
-        <p className="text-gray-600 mt-6 max-w-xl text-lg">
-          Central Highlands Mobile Imaging (CHMI) is a mobile diagnostic ultrasound service committed to improving access to high-quality imaging across Ballarat and the Central Highlands.
-        </p>
+          {/* GRADIENT LIGHT */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2A44] via-[#0F2A44]/70 to-transparent"></div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="relative px-6 md:px-12 lg:px-20 py-24 md:py-32 text-white max-w-6xl">
+
+          <p className="text-sm tracking-[0.25em] text-[#2A9D8F] font-semibold">
+            ABOUT US
+          </p>
+
+          <h1 className="text-4xl md:text-6xl font-serif font-semibold leading-tight mt-5 max-w-3xl">
+            Bringing radiology-grade imaging to regional Victoria
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg text-white/80 leading-relaxed">
+            The Central Highlands Mobile Imaging (CHMI) is a mobile diagnostic ultrasound service committed to improving access to high-quality imaging across Ballarat and the Central Highlands.
+          </p>
+
+        </div>
+
       </section>
 
       {/* STORY */}
@@ -38,7 +60,7 @@ export default function AboutPage() {
             <div className="absolute top-6 left-6 bg-white shadow-md rounded-xl px-5 py-3 text-sm">
               <p className="text-gray-500">Servicing</p>
               <p className="font-semibold text-[#0F2A44]">
-                Ballarat & Central Highlands
+                Ballarat & The Central Highlands
               </p>
             </div>
           </div>
@@ -125,8 +147,8 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
           <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">500+</p>
-            <p className="text-sm mt-1">Scans Completed</p>
+            <p className="text-3xl font-serif text-[#2A9D8F]">0 km</p>
+            <p className="text-sm mt-1"> Travel Required</p>
           </div>
 
           <div>
@@ -135,7 +157,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">24h</p>
+            <p className="text-3xl font-serif text-[#2A9D8F]">24–48h</p>
             <p className="text-sm mt-1">Fast Reporting</p>
           </div>
 

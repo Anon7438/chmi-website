@@ -5,7 +5,7 @@ import Container from "../layout/Container";
 const steps = [
   {
     title: "Send referral",
-    desc: "Email, fax, or upload through your preferred referral system — we accept in all common formats.",
+    desc: "Email, , or upload through your preferred referral system — we accept in all common formats.",
   },
   {
     title: "We visit your clinic",

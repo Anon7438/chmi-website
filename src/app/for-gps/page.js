@@ -18,7 +18,7 @@ export default function ForGPs() {
   const steps = [
     {
       title: "Send referral",
-      desc: "Email, fax, or upload through your preferred referral system — we accept all common formats.",
+      desc: "Email, or upload through your preferred referral system — we accept all common formats.",
     },
     {
       title: "We visit your clinic",
@@ -41,19 +41,19 @@ export default function ForGPs() {
     },
     {
       q: "How quickly will I receive the report?",
-      a: "Typically within 24 hours.",
+      a: "Typically within 24-48 hours.",
     },
     {
       q: "Do you bulk bill?",
       a: "Yes — eligible Medicare studies are bulk billed.",
     },
-    {
-      q: "What areas do you cover?",
-      a: "Ballarat and Central Highlands.",
-    },
+    // {
+    //   q: "What areas do you cover?",
+    //   a: "Ballarat and The Central Highlands.",
+    // },
     {
       q: "How do I send a referral?",
-      a: "Email, fax, or upload via your system.",
+      a: "Email,  or upload via your system.",
     },
   ];
 
@@ -109,7 +109,7 @@ export default function ForGPs() {
               <div>
                 <p className="text-xs text-gray-500">Turnaround</p>
                 <p className="text-sm font-semibold text-[#0F2A44]">
-                  Within 24 hours
+                  Within 24-48 hours
                 </p>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function ForGPs() {
             },
             {
               icon: <Clock />,
-              title: "24h Turnaround",
+              title: "24–48h Turnaround",
               desc: "Reports within one day",
             },
           ].map((card, i) => (

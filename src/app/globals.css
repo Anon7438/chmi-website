@@ -1,4 +1,6 @@
-/* Tailwind */
+/* =========================
+   TAILWIND
+========================= */
 @import "tailwindcss";
 
 /* =========================
@@ -23,38 +25,47 @@ html {
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-body); /* from layout */
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Headings (premium look) */
-h1, h2, h3, h4 {
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
-}
-
-/* Remove ugly mobile tap highlight */
-* {
-  -webkit-tap-highlight-color: transparent;
+  color: var(--text-main);
 }
 
 /* Images */
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/* Links */
+/* Links (FIXED PROPERLY) */
 a {
   text-decoration: none;
+}
+
+/* If link is used like a button → ensure visibility */
+a[class*="bg-"] {
+  color: #ffffff;
 }
 
 /* Buttons */
 button {
   transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Remove mobile tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================
-   REUSABLE UTILITIES
+   LAYOUT UTILITIES
 ========================= */
 
 .section {
@@ -65,9 +76,9 @@ button {
   @apply max-w-7xl mx-auto;
 }
 
+/* Typography */
 .heading {
-  @apply text-3xl md:text-5xl font-semibold;
-  font-family: var(--font-heading);
+  @apply text-3xl md:text-5xl font-semibold leading-tight;
 }
 
 .subtext {
@@ -80,34 +91,61 @@ button {
 ========================= */
 
 .label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: #334155;
+  @apply block text-xs font-medium mb-1 text-slate-600;
 }
 
 .input-clean {
-  width: 100%;
+  @apply w-full px-4 py-3 rounded-xl text-sm;
   border: 1px solid #e5e7eb;
   background: #f8fafc;
-  padding: 14px 16px;
-  border-radius: 12px;
-  font-size: 14px;
   transition: all 0.25s ease;
+}
+
+.input-clean::placeholder {
+  color: #94a3b8;
 }
 
 .input-clean:focus {
   border-color: var(--secondary);
-  background: white;
+  background: #ffffff;
   box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
   outline: none;
 }
 
 .error {
-  font-size: 12px;
-  color: red;
-  margin-top: 4px;
+  @apply text-xs mt-1 text-red-500;
+}
+
+/* =========================
+   BUTTON SYSTEM (GLOBAL FIX)
+========================= */
+
+/* Default buttons */
+button,
+.btn-primary,
+.btn-secondary {
+  @apply inline-block px-6 py-3 rounded-full text-sm font-medium;
+}
+
+/* Primary */
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #16324d;
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.btn-secondary {
+  background-color: var(--secondary);
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
 }
 
 /* =========================
@@ -117,7 +155,7 @@ button {
 @keyframes dropdown {
   from {
     opacity: 0;
-    transform: translateY(-5px) scale(0.98);
+    transform: translateY(-6px) scale(0.98);
   }
   to {
     opacity: 1;

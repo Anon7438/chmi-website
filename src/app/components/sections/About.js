@@ -24,10 +24,10 @@ export default function About() {
             {/* FLOAT CARD */}
             <div className="absolute bottom-6 right-6 bg-white px-6 py-4 rounded-2xl shadow-lg w-[220px]">
               <p className="text-3xl font-semibold text-[#1F3A5F]">
-                500+
+               0 km
               </p>
               <p className="text-sm text-gray-600 mt-1">
-                Scans completed across Central Highlands clinics
+                Patient Travel Required
               </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function About() {
 
             {/* PARA */}
             <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-              Central Highlands Mobile Imaging is one of the first dedicated
+              The Central Highlands Mobile Imaging is one of the first dedicated
               mobile ultrasound services in the region — bringing radiology-level
               diagnostics directly to GP clinics, aged care facilities, and
               community healthcare settings.
