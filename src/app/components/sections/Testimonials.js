@@ -31,7 +31,7 @@ export default function Testimonials() {
           TESTIMONIALS
         </p>
 
-        <h2 className="mt-4 text-[48px] font-serif leading-tight">
+        <h2 className="mt-4 text-[48px] !text-white/80 font-serif leading-tight">
           Trusted by clinics &<br />
           healthcare providers
         </h2>

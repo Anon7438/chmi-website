@@ -1,51 +1,76 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 
 export default function CTASection() {
   return (
     <section className="px-6 md:px-12 lg:px-20 py-20">
-      <div className="bg-gradient-to-r from-[#1E3A5F] to-[#2A9D8F] rounded-3xl p-10 md:p-14 flex flex-col md:flex-row justify-between items-center gap-6 text-white transition hover:shadow-xl">
+      <div className="
+        bg-[#0F2A44] 
+        rounded-3xl 
+        p-10 md:p-14 
+        flex flex-col md:flex-row 
+        justify-between items-center 
+        gap-8 
+        text-white
+        shadow-lg
+      ">
 
+        {/* LEFT */}
         <div>
-          <p className="text-sm tracking-widest text-teal-200 mb-2">
-            GET STARTED
-          </p>
 
-          <h3 className="text-3xl md:text-4xl font-serif">
+          {/* LABEL + LINE */}
+          <div className="flex items-center gap-4 mb-3">
+            <p className="text-xs tracking-[0.3em] text-[#2A9D8F] font-semibold">
+              GET STARTED
+            </p>
+            <div className="h-[1px] w-12 bg-[#2A9D8F]"></div>
+          </div>
+
+          {/* HEADING */}
+          <h3 className="text-3xl md:text-4xl font-heading !text-white/70 leading-tight">
             Book a mobile visit today
           </h3>
 
-          <p className="text-blue-100 mt-3 max-w-md">
-            Supporting clinics across Ballarat & the The Central Highlands with radiologist-reported ultrasound. get in touch to schedule a visit or send a referral. 
+          {/* TEXT */}
+          <p className="text-white/70 mt-4 max-w-md leading-relaxed">
+            Supporting clinics across Ballarat & the Central Highlands with
+            radiologist-reported ultrasound. Get in touch to schedule a visit
+            or send a referral.
           </p>
+
         </div>
 
-        <div className="flex gap-4">
+        {/* RIGHT BUTTONS */}
+        <div className="flex gap-4 flex-wrap">
 
-          {/* ✅ REQUEST (FIXED) */}
+          {/* PRIMARY */}
           <Link
             href="/contact"
             className="
-              inline-flex items-center justify-center
-              bg-white text-[#0F2A44] px-6 py-3 rounded-full font-medium
-              transition-all duration-300
-              hover:-translate-y-1 hover:shadow-lg hover:bg-gray-100
-              active:scale-95
+              bg-[#2A9D8F] 
+              text-white 
+              px-7 py-3 
+              rounded-full 
+              font-medium 
+              shadow-md
+              hover:bg-[#23867a]
+              transition
             "
           >
             Send Referral →
           </Link>
 
-          {/* CALL (correct already) */}
+          {/* SECONDARY */}
           <a
             href="tel:+61000000000"
             className="
-              inline-flex items-center justify-center
-              border border-white px-6 py-3 rounded-full
-              transition-all duration-300
-              hover:bg-white hover:text-[#0F2A44] hover:-translate-y-1 hover:shadow-lg
-              active:scale-95
+              border border-white/30 
+              px-7 py-3 
+              rounded-full 
+              text-white
+              hover:bg-white/10
+              transition
             "
           >
             Call Us

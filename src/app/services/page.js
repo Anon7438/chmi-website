@@ -7,44 +7,49 @@ export default function ServicesPage() {
     <div className="bg-[#F5F7FA]">
 
       {/* HERO */}
-      <section className="relative px-6 md:px-10 lg:px-16 py-24 overflow-hidden">
+<section className="relative px-6 md:px-10 lg:px-16 py-24 overflow-hidden">
 
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/ultrasound-bg.jpg"
-            alt="Ultrasound service"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2A44]/90 via-[#0F2A44]/70 to-transparent"></div>
-        </div>
+  {/* BG */}
+  <div className="absolute inset-0">
+    <img
+      src="/ultrasound-bg.jpg"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-[#0F2A44]/70"></div>
+  </div>
 
-        {/* Content */}
-        <div className="relative max-w-6xl">
-          <p className="text-sm tracking-[0.2em] text-teal-400 font-semibold">
-            SERVICES
-          </p>
+  {/* CONTENT */}
+  <div className="relative max-w-6xl text-white">
 
-          <h1 className="text-4xl md:text-5xl font-serif text-white mt-4 leading-tight max-w-2xl">
-            Our Ultrasound Services
-          </h1>
+    {/* LABEL */}
+    <div className="flex items-center gap-4">
+      <p className="text-xs tracking-[0.3em] text-[#2A9D8F] font-semibold">
+        SERVICES
+      </p>
+      <div className="h-[1px] w-16 bg-[#2A9D8F]"></div>
+    </div>
 
-          <p className="text-gray-200 mt-4 max-w-2xl leading-relaxed">
-            We provide a full range of diagnostic ultrasound services, including general,
-            vascular, musculoskeletal, and small parts imaging — all performed by experienced
-            sonographers and reported by accredited radiologists.
-          </p>
+    {/* HEADING */}
+    <h1 className="mt-5 text-4xl md:text-5xl font-heading leading-tight">
+      Our Ultrasound Services
+    </h1>
 
-          {/* CTA inside hero */}
-          <Link
-            href="/contact"
-            className="inline-block mt-8 bg-teal-500 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:bg-teal-600 transition"
-          >
-            Book Appointment
-          </Link>
-        </div>
-      </section>
+    {/* TEXT */}
+    <p className="text-white/80 mt-5 max-w-2xl leading-relaxed">
+      A complete range of diagnostic ultrasound services — performed by experienced
+      sonographers and reported by accredited radiologists.
+    </p>
+
+    {/* CTA */}
+    {/* <Link
+      href="/contact"
+      className="mt-8 inline-block bg-[#2A9D8F] text-white px-7 py-3 rounded-full shadow-md hover:bg-[#23867a] transition"
+    >
+      Book Appointment
+    </Link> */}
+
+  </div>
+</section>
 
       {/* SERVICES */}
       <ServicesFull />

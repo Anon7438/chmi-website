@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import CTASection from "../components/CTASection";
 import { Heart, Users, Award } from "lucide-react";
 
@@ -9,79 +8,86 @@ export default function AboutPage() {
     <div className="bg-[#F5F7FA] text-[#0F2A44]">
 
       {/* HERO */}
-      {/* HERO */}
       <section className="relative overflow-hidden">
 
-        {/* BACKGROUND IMAGE */}
         <div className="absolute inset-0">
           <img
-            src="/ABOUT.jpeg" // add this image in public folder
-            alt="Ultrasound"
+            src="/ABOUT.jpeg"
             className="w-full h-full object-cover"
           />
-          {/* DARK OVERLAY */}
-          <div className="absolute inset-0 bg-[#0F2A44]/80"></div>
 
-          {/* GRADIENT LIGHT */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2A44] via-[#0F2A44]/70 to-transparent"></div>
+          {/* CLEAN OVERLAY */}
+          <div className="absolute inset-0 bg-[#0F2A44]/60"></div>
+
+          {/* LIGHT GRADIENT */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2A44]/90 via-[#0F2A44]/50 to-transparent"></div>
         </div>
 
-        {/* CONTENT */}
-        <div className="relative px-6 md:px-12 lg:px-20 py-24 md:py-32 text-white max-w-6xl">
+        <div className="relative px-6 md:px-12 lg:px-20 py-28 md:py-36 text-white max-w-6xl">
 
-          <p className="text-sm tracking-[0.25em] text-[#2A9D8F] font-semibold">
-            ABOUT US
-          </p>
+          {/* LABEL */}
+          <div className="flex items-center gap-4">
+            <p className="text-xs tracking-[0.3em] text-[#2A9D8F] font-semibold">
+              ABOUT US
+            </p>
+            <div className="h-[1px] w-14 bg-[#2A9D8F]"></div>
+          </div>
 
-          <h1 className="text-4xl md:text-6xl font-serif font-semibold leading-tight mt-5 max-w-3xl">
+          {/* HEADING */}
+          <h1 className="text-4xl md:text-6xl font-heading !text-white/80 leading-tight mt-6 max-w-3xl">
             Bringing radiology-grade imaging to regional Victoria
           </h1>
 
+          {/* TEXT */}
           <p className="mt-6 max-w-xl text-lg text-white/80 leading-relaxed">
-            The Central Highlands Mobile Imaging (CHMI) is a mobile diagnostic ultrasound service committed to improving access to high-quality imaging across Ballarat and the Central Highlands.
+            CHMI delivers high-quality mobile ultrasound services directly to
+            clinics and healthcare providers — improving access, speed, and
+            patient outcomes.
           </p>
 
         </div>
-
       </section>
 
       {/* STORY */}
-      <section className="px-6 md:px-12 lg:px-20 py-20">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+      <section className="px-6 md:px-12 lg:px-20 py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
 
           {/* IMAGE */}
           <div className="relative">
             <img
               src="/Drc.jpeg"
-              alt="Ultrasound Machine"
-              className="rounded-2xl shadow-lg w-full object-cover"
+              className="rounded-2xl shadow-xl w-full object-cover"
             />
 
-            <div className="absolute top-6 left-6 bg-white shadow-md rounded-xl px-5 py-3 text-sm">
+            <div className="absolute top-6 left-6 bg-white border border-gray-100 shadow-md rounded-xl px-5 py-3 text-sm">
               <p className="text-gray-500">Servicing</p>
               <p className="font-semibold text-[#0F2A44]">
-                Ballarat & The Central Highlands
+                Ballarat & Central Highlands
               </p>
             </div>
           </div>
 
           {/* TEXT */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif mb-6">
+            <h2 className="text-3xl md:text-4xl font-heading mb-6">
               Our story
             </h2>
 
             <div className="space-y-5 text-gray-600 leading-relaxed">
               <p>
-                As one of the first dedicated mobile ultrasound services in the region, CHMI brings radiology-level diagnostics directly to GP clinics, aged care facilities, and community healthcare settings — reducing the need for patient travel and delays in care.
+                CHMI was established to bring radiology-level imaging directly
+                to regional communities — reducing delays and improving access
+                to care.
               </p>
 
               <p>
-                Our service is built around convenience, reliability, and clinical confidence. All scans are performed by experienced sonographers and supported by accredited radiologist reporting.
+                Our model integrates seamlessly into clinical workflows, with
+                experienced sonographers and accredited radiologist reporting.
               </p>
 
               <p>
-                At CHMI, we are proud to support regional healthcare by making essential imaging more accessible, efficient, and patient-focused.
+                We focus on reliability, speed, and patient-first delivery —
+                ensuring consistent, high-quality diagnostic outcomes.
               </p>
             </div>
           </div>
@@ -90,86 +96,83 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="px-6 md:px-12 lg:px-20 py-20 bg-[#EEF3F7]">
+      <section className="px-6 md:px-12 lg:px-20 py-24 bg-[#EEF3F7]">
 
-        <p className="text-sm tracking-[0.2em] text-[#2A9D8F] font-semibold mb-3">
-          VALUES
-        </p>
+        <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-3xl md:text-4xl font-serif mb-10">
-          What drives us
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
-          {/* CARD */}
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 bg-[#2A9D8F]/20 text-[#2A9D8F] flex items-center justify-center rounded-lg mb-5">
-              <Heart />
-            </div>
-            <h3 className="font-semibold text-lg mb-2">
-              Patient-Focused Care
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Reducing travel and stress by bringing imaging directly to patients.
+          <div className="flex items-center gap-4 mb-4">
+            <p className="text-xs tracking-[0.3em] text-[#2A9D8F] font-semibold">
+              VALUES
             </p>
+            <div className="h-[1px] w-14 bg-[#2A9D8F]"></div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 bg-[#2A9D8F]/20 text-[#2A9D8F] flex items-center justify-center rounded-lg mb-5">
-              <Users />
-            </div>
-            <h3 className="font-semibold text-lg mb-2">
-              Community Support
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Building trust with clinics, aged care facilities, and providers.
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-heading mb-12">
+            What drives us
+          </h2>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-            <div className="w-12 h-12 bg-[#2A9D8F]/20 text-[#2A9D8F] flex items-center justify-center rounded-lg mb-5">
-              <Award />
-            </div>
-            <h3 className="font-semibold text-lg mb-2">
-              Clinical Excellence
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Accredited radiologists and high-quality reporting standards.
-            </p>
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {[{
+              icon: <Heart />,
+              title: "Patient-Focused Care",
+              desc: "Reducing travel and improving access to essential imaging."
+            },
+            {
+              icon: <Users />,
+              title: "Community Support",
+              desc: "Trusted partnerships with clinics and providers."
+            },
+            {
+              icon: <Award />,
+              title: "Clinical Excellence",
+              desc: "Accredited radiologists and high reporting standards."
+            }].map((card, i) => (
+              <div
+                key={i}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition"
+              >
+                <div className="w-12 h-12 bg-[#2A9D8F]/10 text-[#2A9D8F] flex items-center justify-center rounded-lg mb-5">
+                  {card.icon}
+                </div>
+
+                <h3 className="font-semibold text-lg mb-2 text-[#0F2A44]">
+                  {card.title}
+                </h3>
+
+                <p className="text-gray-600 text-sm">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+
           </div>
 
         </div>
       </section>
 
       {/* STATS */}
-      <section className="bg-[#0F2A44] text-white py-14">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="bg-[#0F2A44] text-white py-20">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
 
-          <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">0 km</p>
-            <p className="text-sm mt-1"> Travel Required</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">20+</p>
-            <p className="text-sm mt-1">Clinics Supported</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">24–48h</p>
-            <p className="text-sm mt-1">Fast Reporting</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-serif text-[#2A9D8F]">100%</p>
-            <p className="text-sm mt-1">Medicare Compliant</p>
-          </div>
+          {[
+            ["0 km", "Travel Required"],
+            ["20+", "Clinics Supported"],
+            ["24–48h", "Fast Reporting"],
+            ["100%", "Medicare Compliant"]
+          ].map((item, i) => (
+            <div key={i}>
+              <p className="text-4xl font-heading text-[#2A9D8F]">
+                {item[0]}
+              </p>
+              <p className="text-sm mt-2 text-white/70">
+                {item[1]}
+              </p>
+            </div>
+          ))}
 
         </div>
       </section>
-
-      {/* CTA */}
 
       <CTASection />
 

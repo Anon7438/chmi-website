@@ -28,8 +28,8 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold">
-                  The Central Highlands
+                <h3 className="text-lg !text-white/80 font-semibold">
+               Central Highlands
                 </h3>
                 <p className="text-teal-400 text-sm font-medium">
                   Mobile Imaging

@@ -69,7 +69,7 @@ export default function Hero() {
 
               <Link
                 href="/services"
-                className="border border-[#1F3A5F] text-[#1F3A5F] px-7 py-3 rounded-full hover:bg-gray-100 transition"
+                className="bg-[#1F3A5F] text-white px-7 py-3 rounded-full shadow-lg hover:scale-105 transition-all"
               >
                 View Services
               </Link>

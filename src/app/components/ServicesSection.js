@@ -39,65 +39,42 @@ const services = [
 export default function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState(null);
   return (
-    <section className="relative py-20 px-6 bg-gray-50">
+<section className="py-20 px-6 bg-[#F5F7FA]">
+  <div className="max-w-7xl mx-auto text-center">
 
-      {/* background image */}
-      <div className="absolute inset-0 opacity-5">
-        <img
-          src="/clinic.jpg"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <div className="grid md:grid-cols-4 gap-6 mt-12">
 
-      <div className="max-w-7xl mx-auto text-center relative z-10">
-        <div className="mt-12 grid md:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="
+          bg-white
+          p-6 rounded-2xl
+          border border-gray-100
+          shadow-sm hover:shadow-md
+          transition text-left
+          "
+        >
 
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/90 backdrop-blur p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300 text-left"
-            >
+          <div className="flex flex-col items-center text-center mb-4">
+            {service.icon}
+            <h3 className="text-lg font-semibold text-[#0F2A44] mt-2">
+              {service.title}
+            </h3>
+          </div>
 
-              {/* ICON + TITLE */}
-              <div className="flex flex-col items-center text-center mb-4">
-                {service.icon}
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mt-2">
-                  {service.title}
-                </h3>
-              </div>
-
-              {/* ITEMS */}
-              <ul className="text-gray-600 text-sm space-y-1">
-                {(expandedIndex === index
-                  ? service.items
-                  : service.items.slice(0, 5)
-                ).map((item, i) => (
-                  <li key={i}>• {item}</li>
-                ))}
-
-                {service.items.length > 5 && (
-                  <button
-                    onClick={() =>
-                      setExpandedIndex(
-                        expandedIndex === index ? null : index
-                      )
-                    }
-                    className="text-blue-600 text-xs mt-2 hover:underline"
-                  >
-                    {expandedIndex === index ? "Show Less" : "View More"}
-                  </button>
-                )}
-              </ul>
-
-            </motion.div>
-          ))}
+          <ul className="text-gray-600 text-sm space-y-1">
+            {service.items.slice(0, 5).map((item, i) => (
+              <li key={i}>• {item}</li>
+            ))}
+          </ul>
 
         </div>
+      ))}
 
-      </div>
-    </section>
+    </div>
+
+  </div>
+</section>
   );
 }
