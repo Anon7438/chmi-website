@@ -19,13 +19,21 @@ export default function Navbar() {
     { path: "/contact", label: "Contact" },
   ];
 
+  // Lock scroll
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
+  // Close on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[70px] flex items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 overflow-x-hidden">
+
+      {/* FIXED CONTAINER */}
+      <div className="w-full max-w-7xl mx-auto h-[70px] flex items-center justify-between pl-4 pr-2 md:px-8">
 
         {/* LOGO */}
         <Link href="/" className="flex items-center">
@@ -34,7 +42,7 @@ export default function Navbar() {
             alt="CHMI"
             width={180}
             height={60}
-            className="object-contain w-[140px] md:w-[230px]"
+            className="object-contain w-[180px] md:w-[230px]"
             priority
           />
         </Link>
@@ -48,8 +56,8 @@ export default function Navbar() {
               <Link key={item.path} href={item.path} className="relative group">
                 <span
                   className={`transition ${active
-                    ? "text-[#0F2A44]"
-                    : "text-gray-600 hover:text-[#0F2A44]"
+                      ? "text-[#0F2A44]"
+                      : "text-gray-600 hover:text-[#0F2A44]"
                     }`}
                 >
                   {item.label}
@@ -78,21 +86,22 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* MOBILE HAMBURGER ONLY */}
+        {/* MOBILE HAMBURGER */}
         <button
-          className="flex items-center justify-center w-10 h-10 rounded-md border border-gray-300 bg-white md:!hidden"
+          onClick={() => setOpen(!open)}
+          className="flex items-center justify-center w-10 ml-[-24px] h-10 rounded-full border border-gray-300 bg-white md:!hidden shrink-0 mr-[-2px]"
         >
-          <div className="flex flex-col gap-[5px]">
+          <div className="flex flex-col justify-between ml-[-12px] h-[16px]">
             <span
-              className={`w-6 h-[2.5px] bg-[#0F2A44] transition ${open ? "rotate-45 translate-y-[7px]" : ""
+              className={`block w-6 h-[2.5px] bg-[#0F2A44] transition-all duration-300 ${open ? "rotate-45 translate-y-[6px]" : ""
                 }`}
             />
             <span
-              className={`w-6 h-[2.5px] bg-[#0F2A44] transition ${open ? "opacity-0" : ""
+              className={`block w-6 h-[2.5px] bg-[#0F2A44] transition-all duration-300 ${open ? "opacity-0" : ""
                 }`}
             />
             <span
-              className={`w-6 h-[2.5px] bg-[#0F2A44] transition ${open ? "-rotate-45 -translate-y-[7px]" : ""
+              className={`block w-6 h-[2.5px] bg-[#0F2A44] transition-all duration-300 ${open ? "-rotate-45 -translate-y-[6px]" : ""
                 }`}
             />
           </div>
@@ -117,8 +126,8 @@ export default function Navbar() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed top-[70px] left-0 w-full bg-white z-50 px-6 py-6 border-t"
+              transition={{ duration: 0.25 }}
+              className="fixed top-[70px] left-0 w-full bg-white z-50 px-6 py-6 border-t shadow-md"
             >
               <div className="flex flex-col gap-6 text-base font-medium">
 
@@ -128,8 +137,8 @@ export default function Navbar() {
                     href={item.path}
                     onClick={() => setOpen(false)}
                     className={`${pathname === item.path
-                      ? "text-[#0F2A44]"
-                      : "text-gray-700"
+                        ? "text-[#0F2A44]"
+                        : "text-gray-700"
                       }`}
                   >
                     {item.label}

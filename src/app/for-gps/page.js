@@ -120,7 +120,7 @@ export default function ForGPs() {
 
             <div className="mt-6 space-y-4">
               {[
-                "Onsite scanning",
+                "Onsite Imaging",
                 "Radiologist reports",
                 "Fast turnaround",
                 "Secure delivery",
