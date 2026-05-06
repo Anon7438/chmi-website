@@ -31,7 +31,7 @@ export default function ServicesPage() {
 
     {/* HEADING */}
     <h1 className="mt-5 text-4xl md:text-5xl font-heading leading-tight">
-      Our Ultrasound Services
+      Comprehensive On-Site Diagnostic Ultrasound
     </h1>
 
     {/* TEXT */}

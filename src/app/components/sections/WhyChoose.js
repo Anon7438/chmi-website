@@ -22,7 +22,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "0 km", label: " Travel Required" },
+  { value: "0 km", label: "Pateint Travel Required" },
   { value: "20+", label: "Clinics Supported" },
   { value: "24–48h", label: "Fast Reporting" },
   { value: "100%", label: "Medicare Compliant" },

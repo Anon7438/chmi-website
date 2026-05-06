@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import Link from "next/link";
 
@@ -34,9 +34,8 @@ export default function CTASection() {
 
           {/* TEXT */}
           <p className="text-white/70 mt-4 max-w-md leading-relaxed">
-            Supporting clinics across Ballarat & the Central Highlands with
-            radiologist-reported ultrasound. Get in touch to schedule a visit
-            or send a referral.
+            Supporting Aged Care, GP Clinics & Allied Health Providers Across Ballarat & the Central Highlands with Radiologist-Reported Mobile Ultrasound.
+            Get in Touch to Schedule a Visit or Send a Referral.
           </p>
 
         </div>

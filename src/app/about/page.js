@@ -66,7 +66,6 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-
           {/* TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-heading mb-6">
@@ -74,21 +73,30 @@ export default function AboutPage() {
             </h2>
 
             <div className="space-y-5 text-gray-600 leading-relaxed">
+
               <p>
-                CHMI was established to bring radiology-level imaging directly
-                to regional communities — reducing delays and improving access
-                to care.
+                CHMI was established to bring radiology-level imaging directly to
+                regional communities — improving access to care while reducing
+                unnecessary patient travel and delays.
               </p>
 
               <p>
-                Our model integrates seamlessly into clinical workflows, with
-                experienced sonographers and accredited radiologist reporting.
+                We provide mobile ultrasound services for aged care facilities,
+                GP clinics, and allied health providers across Ballarat and the
+                Central Highlands.
               </p>
 
               <p>
-                We focus on reliability, speed, and patient-first delivery —
-                ensuring consistent, high-quality diagnostic outcomes.
+                Making essential imaging more accessible, efficient, and
+                patient-focused — without patients having to leave the facility.
               </p>
+
+              <p>
+                Our model integrates seamlessly into clinical workflows, supported
+                by experienced sonographers and accredited radiologist reporting to
+                ensure reliable, high-quality diagnostic outcomes.
+              </p>
+
             </div>
           </div>
 
@@ -156,7 +164,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
 
           {[
-            ["0 km", "Travel Required"],
+            ["0 km", "Patient Travel Required"],
             ["20+", "Clinics Supported"],
             ["24–48h", "Fast Reporting"],
             ["100%", "Medicare Compliant"]

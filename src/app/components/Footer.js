@@ -16,7 +16,7 @@ export default function Footer() {
 
           {/* ================= LEFT ================= */}
           <div>
-            
+
             <div className="flex items-center gap-4">
               <div className="bg-white  backdrop-blur-sm  rounded-[5rem] shadow-sm shrink-0">
                 <Image
@@ -29,7 +29,7 @@ export default function Footer() {
 
               <div>
                 <h3 className="text-lg !text-white/80 font-semibold">
-               Central Highlands
+                  Central Highlands
                 </h3>
                 <p className="text-teal-400 text-sm font-medium">
                   Mobile Imaging
@@ -38,8 +38,8 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-blue-200 mt-6 leading-relaxed max-w-md">
-              Professional mobile ultrasound services across Ballarat & the The Central Highlands. Radiologist-reported, Medicare compliant, delivered onsite.
-            </p>
+              Mobile Ultrasound Services Across Ballarat & the Central Highlands
+              Supporting Aged Care, GP Clinics & Allied Health Providers with professional radiologist-reported imaging delivered directly on-site — reducing patient travel and improving access to timely care.</p>
 
             {/* ✅ BADGES (SMART WRAP — MOBILE FIXED) */}
             <div className="flex flex-wrap gap-3 mt-6">

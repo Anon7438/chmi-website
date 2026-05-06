@@ -23,7 +23,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </span>
 
-               Bulk Billing Available
+              Mobile Ultrasound for Aged Care, GP Clinics Across Ballarat & Central Highlands
             </div>
 
             {/* HEADING */}
@@ -46,9 +46,9 @@ export default function Hero() {
             <div className="mt-8 grid grid-cols-2 gap-y-4 gap-x-6 text-[15px] text-gray-700">
               {[
                 "Radiologist Reported",
-                "Medicare Compliant",
-                "Onsite Imaging Services",
-                " Bulk Billing Available",
+                "Bulk Billing Available",
+                "On-Site Services for Aged Care & Clinics",
+                "Serving Ballarat & the Central Highlands",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <CheckCircle className="text-[#2A9D8F] w-5 h-5" />
