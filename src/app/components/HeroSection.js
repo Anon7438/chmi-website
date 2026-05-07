@@ -47,16 +47,15 @@ export default function Hero() {
               {[
                 "Radiologist Reported",
                 "Bulk Billing Available",
-                "On-Site Services for Aged Care & Clinics",
-                "Serving Ballarat & the Central Highlands",
+                "On-Site Aged Care & Clinic Services",
+                "Ballarat & Central Highlands Coverage",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <CheckCircle className="text-[#2A9D8F] w-5 h-5" />
-                  {item}
+                <div key={i} className="flex items-center gap-2 whitespace-nowrap">
+                  <CheckCircle className="text-[#2A9D8F] w-5 h-5 shrink-0" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
-
             {/* BUTTONS */}
             <div className="mt-10 flex gap-4">
 
@@ -113,7 +112,7 @@ export default function Hero() {
               </div>
 
               <div className="text-sm">
-                <p className="text-gray-500">Reports in</p>
+                <p className="text-gray-500">Reports</p>
                 <p className="font-semibold text-[#0F2A44]">
                   Within 24–48 hours
                 </p>
